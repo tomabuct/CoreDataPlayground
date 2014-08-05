@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="OtherThing" representedClassName="CoreDataPlayground.OtherThing" syncable="YES">
+        <attribute name="good" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="thing" transient="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thing" inverseName="otherThings" inverseEntity="Thing" syncable="YES"/>
+    </entity>
+    <entity name="Thing" representedClassName="CoreDataPlayground.Thing" syncable="YES">
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="visible" attributeType="Boolean" syncable="YES"/>
+        <relationship name="otherThings" transient="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OtherThing" inverseName="thing" inverseEntity="OtherThing" syncable="YES"/>
+    </entity>
+    <configuration name="Memory">
+        <memberEntity name="OtherThing"/>
+    </configuration>
+    <configuration name="SQL">
+        <memberEntity name="Thing"/>
+    </configuration>
+    <elements>
+        <element name="OtherThing" positionX="-63" positionY="0" width="128" height="88"/>
+        <element name="Thing" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
 </model>
